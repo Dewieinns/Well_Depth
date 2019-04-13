@@ -22,7 +22,7 @@ import netrc
 netrc = netrc.netrc()
 
 authTokens_gmail = netrc.authenticators("smtp.gmail.com")
-autoTokems_sql = netrc.authenticators("localhost_sql_server")
+autoTokens_sql = netrc.authenticators("localhost_sql_server")
 
 smtp_server = "smtp.gmail.com"
 port = 587  # For starttls
@@ -41,10 +41,10 @@ with urllib.request.urlopen(url) as url:
 	import mysql.connector
 
 	mydb = mysql.connector.connect(
-		host="localhost",
-		user=authTokens_sql[0],
-		passwd="",
-		database=authTokens_sql[2]
+		host = "localhost",
+		user = authTokens_sql[0],
+		passwd = authTokens_sql[2],
+		database = "heatpump"
 	)
 
 	mycursor = mydb.cursor()

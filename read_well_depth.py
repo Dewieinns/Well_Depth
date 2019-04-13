@@ -62,8 +62,9 @@ with urllib.request.urlopen(url) as url:
 
 	print(mycursor.rowcount, "record inserted.")
 
-	if depth_value <= 150:
 
+	if depth_value <= 150:
+		print("Well water getting low, send an email message")
 		message = MIMEMultipart("alternative")
 		message["From"] = sender_email
 		message["To"] = receiver_email
@@ -72,8 +73,8 @@ with urllib.request.urlopen(url) as url:
 			message["Subject"] = "Domestic Well VERY VERY low"
 			message_html = """\
 			<html><body>
-				The well water level is very VERY low, Have you ordered water yet?
-				
+				The well water level is very VERY low, Have you ordered water yet?<br />
+				<br />
 				<a href="http://dewie.ca/Heatpump/historical/well-historical.html">Link to Historical Data</a>
 			</body></html>	
 				"""
@@ -82,8 +83,8 @@ with urllib.request.urlopen(url) as url:
 			message["Subject"] = "Domestic Well Very Low"
 			message_html = """\
 			<html><body>
-				The well water level is very VERY low, Order Water!
-				
+				The well water level is very VERY low, Order Water!<br />
+				<br />
 				<a href="http://dewie.ca/Heatpump/historical/well-historical.html">Link to Historical Data</a>
 			</body></html>	"""
 
@@ -91,8 +92,8 @@ with urllib.request.urlopen(url) as url:
 			message["Subject"] = "Domestic Well Low"
 			message_html = """\
 			<html><body>
-				The well water level is getting low.
-				
+				The well water level is getting low.<br />
+				<br />
 				<a href="http://dewie.ca/Heatpump/historical/well-historical.html">Link to Historical Data</a>
 			</body></html>	"""
 
@@ -108,3 +109,5 @@ with urllib.request.urlopen(url) as url:
 			server.ehlo()  # Can be omitted
 			server.login(sender_email, password)
 			server.sendmail(sender_email, receiver_email, message.as_string())
+		print("Email sent")
+

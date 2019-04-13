@@ -98,7 +98,7 @@ with urllib.request.urlopen(url) as url:
 
 		# Create a secure SSL context
 
-		message_MIME = MIMEText(html, "html")
+		message_MIME = MIMEText(message_html, "html")
 		message.attach(message_MIME)
 
 		context = ssl.create_default_context()

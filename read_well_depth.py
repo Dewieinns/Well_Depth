@@ -45,8 +45,8 @@ with urllib.request.urlopen(url) as url:
 
 	mydb = mysql.connector.connect(
 		host = "localhost",
-		user = autoTokens_sql[0],
-		passwd = autoTokens_sql[2],
+		user = authTokens_sql[0],
+		passwd = authTokens_sql[2],
 		database = "heatpump"
 	)
 

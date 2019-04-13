@@ -24,9 +24,6 @@ netrc = netrc.netrc()
 authTokens_gmail = netrc.authenticators("smtp.gmail.com")
 authTokens_sql = netrc.authenticators("localhost_sql_server")
 
-
-
-
 smtp_server = "smtp.gmail.com"
 port = 587  # For starttls
 sender_email = authTokens_gmail[0]
@@ -63,24 +60,42 @@ with urllib.request.urlopen(url) as url:
 	print(mycursor.rowcount, "record inserted.")
 
 	if depth_value <= 150:
+
+		message = MIMEMultipart("alternative")
+		message["From"] = sender_email
+		message["To"] = receiver_email
+
 		if depth_value <= 75.0:
-			# Create a secure SSL context
-			message = """\
-			Subject: Well water Very VERY low
-	
-			The well water level is very VERY low, Have you ordered water yet?"""
+			message["Subject"] = "Domestic Well VERY VERY low"
+			message_html = """\
+			<html><body>
+				The well water level is very VERY low, Have you ordered water yet?
+				
+				<a href="http://dewie.ca/Heatpump/historical/well-historical.html">Link to Historical Data</a>
+			</body></html>	
+				"""
 
 		elif depth_value <= 100.0:
-			message = """\
-			Subject: Well water Very low
-
-			The well water level is very low, Order Water"""
+			message["Subject"] = "Domestic Well Very Low"
+			message_html = """\
+			<html><body>
+				The well water level is very VERY low, Order Water!
+				
+				<a href="http://dewie.ca/Heatpump/historical/well-historical.html">Link to Historical Data</a>
+			</body></html>	"""
 
 		else:
-			message = """\
-			Subject: Well water low
+			message["Subject"] = "Domestic Well Low"
+			message_html = """\
+			<html><body>
+				The well water level is getting low.
+				
+				<a href="http://dewie.ca/Heatpump/historical/well-historical.html">Link to Historical Data</a>
+			</body></html>	"""
 
-			The well water level is low"""
+		# Create a secure SSL context
+
+		message.attach(message_html)
 
 		context = ssl.create_default_context()
 		with smtplib.SMTP(smtp_server, port) as server:
@@ -88,4 +103,4 @@ with urllib.request.urlopen(url) as url:
 			server.starttls(context=context)
 			server.ehlo()  # Can be omitted
 			server.login(sender_email, password)
-			server.sendmail(sender_email, receiver_email, message)
+			server.sendmail(sender_email, receiver_email, message.as_string())

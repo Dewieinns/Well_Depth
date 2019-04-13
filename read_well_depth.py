@@ -22,7 +22,10 @@ import netrc
 netrc = netrc.netrc()
 
 authTokens_gmail = netrc.authenticators("smtp.gmail.com")
-autoTokens_sql = netrc.authenticators("localhost_sql_server")
+authTokens_sql = netrc.authenticators("localhost_sql_server")
+
+
+
 
 smtp_server = "smtp.gmail.com"
 port = 587  # For starttls
@@ -42,8 +45,8 @@ with urllib.request.urlopen(url) as url:
 
 	mydb = mysql.connector.connect(
 		host = "localhost",
-		user = authTokens_sql[0],
-		passwd = authTokens_sql[2],
+		user = autoTokens_sql[0],
+		passwd = autoTokens_sql[2],
 		database = "heatpump"
 	)
 
@@ -59,15 +62,15 @@ with urllib.request.urlopen(url) as url:
 
 	print(mycursor.rowcount, "record inserted.")
 
-	if str(depth_value) <= 150:
-		if str(depth_value) <= 75.0:
+	if depth_value <= 150:
+		if depth_value <= 75.0:
 			# Create a secure SSL context
 			message = """\
 			Subject: Well water Very VERY low
 	
 			The well water level is very VERY low, Have you ordered water yet?"""
 
-		elif str(depth_value) <= 100.0:
+		elif depth_value <= 100.0:
 			message = """\
 			Subject: Well water Very low
 

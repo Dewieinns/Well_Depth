@@ -3,6 +3,9 @@ import mysql.connector
 import datetime
 import smtplib, ssl
 
+from email.mime.text import MIMEText
+from email.mime.multipart import MIMEMultipart
+
 
 import netrc
 
@@ -95,7 +98,8 @@ with urllib.request.urlopen(url) as url:
 
 		# Create a secure SSL context
 
-		message.attach(message_html)
+		message_MIME = MIMEText(html, "html")
+		message.attach(message_MIME)
 
 		context = ssl.create_default_context()
 		with smtplib.SMTP(smtp_server, port) as server:

@@ -4,15 +4,28 @@ import smtplib, ssl
 
 import netrc
 
-netrc = Netrc()  # parse ~/.netrc
+#netrc = Netrc()  # parse ~/.netrc
 # Get credentials
 
+netrc           = netrc.netrc()
+
+gmail_creds  = "smtp.gmail.com"
+
+authTokens_gmail = netrc.authenticators(gmail_creds)
+
+
+#print("User Name at remote host:%s"%(authTokens[0]))
+
+#print("Account Password:%s"%(authTokens[1]))
+
+#print("Password for the user name at remote host:%s"%(authTokens[2]))
 
 
 smtp_server = "smtp.gmail.com"
 port = 587  # For starttls
-sender_email = netrc['smtp.gmail.com']['login']
-password = netrc['smtp.gmail.com']['password']
+sender_email = authTokens_gmail[0] 
+receiver_email = "dewiepedia@gmail.com"
+password = authTokens_gmail[2]
 
 
 message = """\

@@ -37,8 +37,16 @@ SeeKool 2 pcs ESP8266 NodeMcu LUA WiFi Module CP2102 ESP-12E Development Board O
 |D5			|Pin 14				|Sensor Input	|
 
 ## Log
-2019-03-23 	- Up and running after determing seller provided wrong wiring information initially. 
-		- Seems to work fine off 12 (10.90) VDC
+#####2019-03-23
+- Up and running after determing seller provided wrong wiring information initially. 
+- Seems to work fine off 12 (10.90) VDC
+#####2019-04-12 
+- Ran the water level down as far as I could get it with Nic's pump then ran the water hydrants on the house
+managed to get a low reading of 75.0 without actually running out, but could see foot valve. Much lower
+may as well be considered 0
+#####2019-04-13 
+- Had accidentally left the heatpump on after yesterday which ran it completely out of water. Lowest observed
+reading was 65.0 @ 2019-04-12 23:45:01
 
 
 ## ToDo

@@ -25,7 +25,7 @@ SeeKool 2 pcs ESP8266 NodeMcu LUA WiFi Module CP2102 ESP-12E Development Board O
 
 
 |Pin on board		|Pin in Arduino IDE		|Use		|
--------------------------------------------------------------------------
+|-----------------------|-------------------------------|---------------|
 |D7 			|Pin 13 			|LED		|
 |D5			|Pin 14				|Sensor Input	|
 

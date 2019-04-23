@@ -8,16 +8,19 @@ Contains the program uploaded to the NodeMCU
 #### /Server Side
 Contains a script that's run via a cronjob on a Linux server at varying rates (stick to an hour most of the time) which simply polls the NodeMCU for data and logs it to a Database.
 
-## Sensor			
-- Red 		Power	
-- Black		Common	
-- White		Output	 	
+## Sensor
+|Color 		| Purpose	|
+|-------	| -------	|			
+|Red 		|Power		|
+|Black		|Common		|
+|White		|Output	 	|
 
 https://www.aliexpress.com/item/4-20mA-Submersible-Liquid-Level-Sensor-Water-Level-Transmitter-Tank-Level-Transducer-DC24V-For-Detecting-0/32956105218.html?spm=a2g0s.9042311.0.0.7cfc4c4dooYNBU
 
 - Sensor Range		    	= 0 - 1024
 - Sensor out of water entirely 	= ~7
-- Run out of water at 	     	= 
+- Run out of water at 	     	= 65.0
+- 2 ft of water above 100% reading (limitation of the sensor purchased)
 
 Data stored raw in DB
 Percentage calculated in PHP script that polls database. 

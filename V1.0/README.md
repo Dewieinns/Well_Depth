@@ -2,7 +2,7 @@
 
 The First iteration of my Well Water depth sensor which reads the water level from a ~20 ft dug well only. 
 
-
+--- 
 ## Software
 
 Software is broken in to 3 components:
@@ -19,7 +19,7 @@ The data is intrepreted and graphed via my personal webserver in various places 
 
 
 
-
+---
 ## Hardware 
 
 Hardware is assembled in a waterproof enclosure at the well head. Built on a prototype board is a ESP8266 NodeMcu powered by a cell phone USB charger hooked to a 12v car battery. The Sensor is hooked directly to this 12v battery and returns an analog signal to the A0 port of the ESP8266 NodeMcu. A LED is lit on the cell phone charger/power supply to indicate it does indeed have power and a green LED illuminates when the unit is returning a JSON response for diagnostic purposes. 

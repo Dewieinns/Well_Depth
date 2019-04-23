@@ -1,7 +1,14 @@
 # Well_Depth
 
+The First iteration of my Well Water depth sensor which reads the water level from a ~20 ft dug well only. 
 
-##Sensor			
+### Arduino 
+Contains the program uploaded to the NodeMCU
+
+### Server Side
+Contains a script that's run via a cronjob on a Linux server at varying rates (stick to an hour most of the time) which simply polls the NodeMCU for data and logs it to a Database.
+
+## Sensor			
 - Red 		Power	
 - Black		Common	
 - White		Output	 	

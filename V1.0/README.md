@@ -2,10 +2,10 @@
 
 The First iteration of my Well Water depth sensor which reads the water level from a ~20 ft dug well only. 
 
-### Arduino 
+#### /Arduino 
 Contains the program uploaded to the NodeMCU
 
-### Server Side
+#### /Server Side
 Contains a script that's run via a cronjob on a Linux server at varying rates (stick to an hour most of the time) which simply polls the NodeMCU for data and logs it to a Database.
 
 ## Sensor			
@@ -36,6 +36,12 @@ SeeKool 2 pcs ESP8266 NodeMcu LUA WiFi Module CP2102 ESP-12E Development Board O
 |D7 			|Pin 13 			|LED		|
 |D5			|Pin 14				|Sensor Input	|
 
-
+## Log
 2019-03-23 	- Up and running after determing seller provided wrong wiring information initially. 
 		- Seems to work fine off 12 (10.90) VDC
+
+
+## ToDo
+- Look at setting a DNS Name for the NodeMCU
+- Voltage divider/voltage monitoring of the battery which runs the electronics at the Well Head
+- Provisions for a second well depth monitor (Deep well)

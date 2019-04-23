@@ -2,14 +2,30 @@
 
 The First iteration of my Well Water depth sensor which reads the water level from a ~20 ft dug well only. 
 
+
+## Software
+
+Software is broken in to 3 components:
+
 #### /Arduino 
-Contains the program uploaded to the NodeMCU
+Contains the program uploaded to the NodeMCU. When a web request comes in the hardware polls the water sensor for its depth, then returns a formatted JSON response.
 
 #### /Server Side
-Contains a script that's run via a cronjob on a Linux server at varying rates (stick to an hour most of the time) which simply polls the NodeMCU for data and logs it to a Database.
+Contains a script that's run via a cronjob on a Linux server at varying rates (stick to an hour most of the time) which simply polls the NodeMCU for its JSON data and logs the raw data (0-1024) to a Database.
+
+#### *Webserver*
+The data is intrepreted and graphed via my personal webserver in various places via various methods for various reasons. 
+
+
+
+
+
+## Hardware 
+
+Hardware is assembled in a waterproof enclosure at the well head. Built on a prototype board is a ESP8266 NodeMcu powered by a cell phone USB charger hooked to a 12v car battery. The Sensor is hooked directly to this 12v battery and returns an analog signal to the A0 port of the ESP8266 NodeMcu. A LED is lit on the cell phone charger/power supply to indicate it does indeed have power and a green LED illuminates when the unit is returning a JSON response for diagnostic purposes. 
 
 ---
-## Sensor
+### Sensor
 |Color 		| Purpose	|
 |-------	| -------	|			
 |Red 		|Power		|
@@ -23,11 +39,10 @@ https://www.aliexpress.com/item/4-20mA-Submersible-Liquid-Level-Sensor-Water-Lev
 - Run out of water at 	     	= 65.0
 - 2 ft of water above 100% reading (limitation of the sensor purchased)
 
-Data stored raw in DB
-Percentage calculated in PHP script that polls database. 
+
 
 ---
-## ESP8266 NodeMcu
+### ESP8266 NodeMcu
 
 SeeKool 2 pcs ESP8266 NodeMcu LUA WiFi Module CP2102 ESP-12E Development Board Open Source Serial Wireless Module Works Great with Arduino IDE/Micropython
 

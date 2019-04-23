@@ -1,0 +1,42 @@
+Measure the source voltage 
+https://raspberrypi.stackexchange.com/questions/55177/vehicle-12v-detection-or-measurement
+
+ +18v-------------------------
+      |
+      |
+      \
+      /
+      \ R1
+      /
+      \
+      |
+      |
+      -------------->   Vout (connect to ADC input)
+      |
+      |
+      \
+      / 
+      \ R2
+      /
+      \
+      |
+      |
+Gnd----------------------
+The voltage dropped across each is a ratio of their resistances:
+
+                R1
+Vr1 = Vin * ---------
+            (R1 + R2)
+
+                R2
+Vr2 = Vin * ---------
+            (R1 + R2)
+So, to get down to (max 3.3v) on Vout you need around a ratio of 5:1 I'd look at around 100K for R1 and 20K for R2.
+
+Meaning that if the input was 18v you'd get:
+
+18 * (20k / (20k + 100k) = 3v.
+
+... and if it drops to say 12v, you'd get:
+
+12 * (20k / (20k + 100k) = 2v.

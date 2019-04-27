@@ -92,8 +92,8 @@ Provides the ESP8266 with additional Analog IOs
 ---
 ## ToDo
 - Look at setting a DNS Name for the ESP8266 
-- Voltage divider/voltage monitoring of the battery which runs the electronics at the Well Head
-- Provisions for a second well depth monitor (Deep well)
+~~- Voltage divider/voltage monitoring of the battery which runs the electronics at the Well Head~~
+~~- Provisions for a second well depth monitor (Deep well)~~
 
 
 

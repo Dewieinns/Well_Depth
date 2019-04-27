@@ -94,7 +94,9 @@ Provides the ESP8266 with additional Analog IOs
 - Look at setting a DNS Name for the ESP8266 
 - ~~Voltage divider/voltage monitoring of the battery which runs the electronics at the Well Head~~
 - ~~Provisions for a second well depth monitor (Deep well)~~
-
+#### Future Planning
+- ~~Make additional Analog IOs accessible~~
+- ~~Make an expansion header to make additional ESP8266 Digital IOs accessible ~~
 
 
 

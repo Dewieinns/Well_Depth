@@ -43,10 +43,17 @@ https://easyeda.com/dewie/well-depth
 
 https://www.aliexpress.com/item/4-20mA-Submersible-Liquid-Level-Sensor-Water-Level-Transmitter-Tank-Level-Transducer-DC24V-For-Detecting-0/32956105218.html?spm=a2g0s.9042311.0.0.7cfc4c4dooYNBU
 
-- Sensor Range		    	= 0 - 1024
-- Sensor out of water entirely 	= ~7
-- Run out of water at 	     	= 65.0
-- 2 ft of water above 100% reading (limitation of the sensor purchased)
+
+|Shallow Well 															| Deep Well	|
+|-------																| -------	|	
+|- Sensor Range		    	= 0 - 1024									| - Sensor Range		    	= 0 - 1024	|
+|- Sensor out of water entirely 	= ~7								| - Sensor out of water entirely 	= 				|
+|- Run out of water at 	     	= 65.0									| - Run out of water at 	     	= 65.0					|
+|- 2 ft of water above 100% reading (limitation of the sensor purchased)| 					|
+
+
+
+
 
 
 

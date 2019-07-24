@@ -33,6 +33,10 @@ I have attemped to design a solution that allows me to monitor two wells on my p
 ### Circuit/PCB
 https://easyeda.com/dewie/well-depth
 
+#### Voltage Divider
+Sensors are fed 12VDC but circuitry can't read that. A Voltage divider is necessary to drop the voltage down so we don't fry the electronics. 
+** MORE ON THIS LATER**
+
 ---
 ### Sensor Wiring 
 |Color 		| Purpose	|

@@ -40,7 +40,7 @@ Sensors are fed 12VDC but circuitry can't read that. A Voltage divider is necess
 - R3 & R4 = Divider for Sensor 0
 - R5 & R6 = Divider for Sensor 1
 - R7 & R8 = Divider for Aux 1
-** NO DIVIDER FOR AUX 0
+- ** NO DIVIDER FOR AUX 0
 
 - R9  - Power LED    - Will depend on the LED used. 
 - R10 - Sensor 0 LED - Will depend on the LED used. 

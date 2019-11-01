@@ -36,10 +36,10 @@ https://easyeda.com/dewie/well-depth
 #### Voltage Divider
 Sensors are fed 12VDC but circuitry can't read that. A Voltage divider is necessary to drop the voltage down so we don't fry the electronics. 
 ** MORE ON THIS LATER**
-R1 & R2 = Divider for voltage Sensing
-R3 & R4 = Divider for Sensor 0
-R5 & R6 = Divider for Sensor 1
-R7 & R8 = Divider for Aux 1
+- R1 & R2 = Divider for voltage Sensing
+- R3 & R4 = Divider for Sensor 0
+- R5 & R6 = Divider for Sensor 1
+- R7 & R8 = Divider for Aux 1
 ** NO DIVIDER FOR AUX 0
 
 R9  - Power LED    - Will depend on the LED used. 

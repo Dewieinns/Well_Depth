@@ -58,6 +58,14 @@ https://www.instructables.com/id/Quick-Start-to-Nodemcu-ESP8266-on-Arduino-IDE/
 
 ---
 ## Log
+
+##### 2019-07-07 
+- Still Seems to be working as intended
+
+##### 2019-07-07 
+- Hooked up a solar panel to the battery as I was getting weird readings when the voltage would drop beyond a certain point. 
+- Otherwise seems to be working fine
+
 ##### 2019-03-23
 - Up and running after determing seller provided wrong wiring information initially. 
 - Seems to work fine off 12 (10.90) VDC

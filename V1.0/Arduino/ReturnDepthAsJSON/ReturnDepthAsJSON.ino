@@ -15,7 +15,7 @@ void setup() {
 
   pinMode(ledPin, OUTPUT);
   digitalWrite(ledPin, LOW);
-
+  WiFi.hostname("Well_Depth_v2");
  
   // Connect to WiFi network
   Serial.println();

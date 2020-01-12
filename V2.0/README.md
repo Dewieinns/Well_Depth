@@ -87,10 +87,10 @@ https://www.instructables.com/id/Quick-Start-to-Nodemcu-ESP8266-on-Arduino-IDE/
 
 |Pin on board		|Pin in Arduino IDE		|Use			|
 |-------------------|-----------------------|---------------|
-|D0					|GPIO 16 				|Aux Header	&LED-DEPTH0 	|
+|D0					|GPIO 16 				|Aux Header	&LED-DEPTH1 	|
 |D1 				|GPIO 5  				|ADS1115 SCL	|
 |D2 				|GPIO 4  				|ADS1115 SDA	|
-|D3 				|GPIO 0	 				|LED-DEPTH1		|
+|D3 				|GPIO 0	 				|LED-DEPTH0		|
 |~~D4~~ 			|GPIO 2					|~~LED-DEPTH1~~	|
 |D5 				|GPIO 14				|Aux Header		|
 |D6 				|GPIO 12				|Aux Header		|

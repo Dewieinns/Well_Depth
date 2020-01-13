@@ -43,7 +43,7 @@ Sensors are fed 12VDC but circuitry can't read that. A Voltage divider is necess
 - R1 & R2 = Divider for voltage Sensing  (R1 10k & R2 3.3k)
 
 |Input Voltage	| Divided Voltage|
-|--------	|		|
+|--------	| -------	|
 | 15v 		| 3.72		|
 | 12v 		| 2.97v  	|
 |10v 		| 2.48		|

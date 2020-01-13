@@ -41,8 +41,8 @@ https://easyeda.com/dewie/well-depth
 #### Voltage Divider
 Sensors are fed 12VDC but circuitry can't read that. A Voltage divider is necessary to drop the voltage down so we don't fry the electronics. 
 ** MORE ON THIS LATER**
-- R1 & R2 = Divider for voltage Sensing  (R1 10k & R2 3.3k?)
-- R3 & R4 = Divider for Sensor 0
+- R1 & R2 = Divider for voltage Sensing  (R1 10k & R2 3.3k - 15v input = 3.72v output & 12v -> 2.97v  10v -> 2.48V)
+- R3 & R4 = Divider for Sensor 0  **NOTE** Max 3.3VDC on ESP8266, not 5VDC like ADS1115
 - R5 & R6 = Divider for Sensor 1
 - ** NO DIVIDER FOR AUX 0
 - R7 & R8 = Divider for Aux 1
@@ -87,7 +87,7 @@ https://www.instructables.com/id/Quick-Start-to-Nodemcu-ESP8266-on-Arduino-IDE/
 
 |Pin on board		|Pin in Arduino IDE		|Use			|
 |-------------------|-----------------------|---------------|
-|D0					|GPIO 16 				|Aux Header	&LED-DEPTH1 	|
+|D0				|GPIO 16 				|Aux Header	&LED-DEPTH1 	|
 |D1 				|GPIO 5  				|ADS1115 SCL	|
 |D2 				|GPIO 4  				|ADS1115 SDA	|
 |D3 				|GPIO 0	 				|LED-DEPTH0		|
@@ -96,7 +96,7 @@ https://www.instructables.com/id/Quick-Start-to-Nodemcu-ESP8266-on-Arduino-IDE/
 |D6 				|GPIO 12				|Aux Header		|
 |D7 				|GPIO 13 				|Aux Header		|
 |D8 				|GPIO 15				|Aux Header		|
-|A0					|A0						|DEPTH0 		|
+|A0				|A0						|DEPTH0 		|
 
 
 ### ADS1115
@@ -135,6 +135,7 @@ http://henrysbench.capnfatz.com/henrys-bench/arduino-voltage-measurements/arduin
 - Don't make anything use internal LED (D4)
 - Ground for Aux1 ended up too close to power pins for Depth0 & 1 LEDs and shorted them to ground
 - Jumper resistors for Depth0 & 1 LEDs as they're not really necessary in this application 
+- Capacitor for 12v Input (After divider) ? (Possibly not necessary)
 
 #### Helpful Links
 ###### Measuring the battery voltage 

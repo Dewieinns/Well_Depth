@@ -44,11 +44,18 @@ Sensors are fed 12VDC but circuitry can't read that. A Voltage divider is necess
 
 |Input Voltage	| Divided Voltage|
 |--------	| -------	|
-| 15v 		| 3.72		|
+| 15v 		| 3.72v		|
 | 12v 		| 2.97v  	|
-|10v 		| 2.48		|
+| 10v 		| 2.48v		|
 
-- R3 & R4 = Divider for Sensor 0  **NOTE** Max 3.3VDC on ESP8266, not 5VDC like ADS1115
+- R3 & R4 = Divider for Sensor 0  (R1 2.2k & R2 3.3k) 
+**NOTE** Max 3.3VDC on ESP8266, not 5VDC like ADS1115
+|Input Voltage	| Divided Voltage|
+|--------	| -------	|
+| 5v 		| 3v		|
+| 2.5v 		| 1.5v  	|
+| 1v 		| 0.6v		|
+
 - R5 & R6 = Divider for Sensor 1
 - ** NO DIVIDER FOR AUX 0
 - R7 & R8 = Divider for Aux 1

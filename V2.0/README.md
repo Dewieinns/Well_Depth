@@ -26,14 +26,13 @@ The data is intrepreted and graphed via my personal webserver in various places 
 
 ---
 ## Hardware 
- Have yet to build this.
  
 I have attemped to design a solution that allows me to monitor two wells on my property (possibly more) while including provisions on the board to do more. I also tried to make the unit so I can have multiples of this board printed and use it for the most basic function of monitoring one well (See Notes below). 
  
  
 #### Notes:  
 - Intentionally used A0 on ESP8266 D1 Mini instead of ADS1115 so board could be assembled as single depth monitor. 
--- This requried voltage divider to be used to use 0-5VDC signal with 0-3.3V range of NodeMCU. 
+-- This requries a voltage divider so we can read the 0-5VDC signal from the sensor with the 0-3.3V range of NodeMCU. 
 
 ### Circuit/PCB
 https://easyeda.com/dewie/well-depth
@@ -41,7 +40,13 @@ https://easyeda.com/dewie/well-depth
 #### Voltage Divider
 Sensors are fed 12VDC but circuitry can't read that. A Voltage divider is necessary to drop the voltage down so we don't fry the electronics. 
 ** MORE ON THIS LATER**
-- R1 & R2 = Divider for voltage Sensing  (R1 10k & R2 3.3k - 15v input = 3.72v output & 12v -> 2.97v  10v -> 2.48V)
+- R1 & R2 = Divider for voltage Sensing  (R1 10k & R2 3.3k)
+|Input Voltage	| Divided Voltage|
+|--------	|		|
+| 15v 		| 3.72		|
+| 12v 		| 2.97v  	|
+|10v 		| 2.48		|
+
 - R3 & R4 = Divider for Sensor 0  **NOTE** Max 3.3VDC on ESP8266, not 5VDC like ADS1115
 - R5 & R6 = Divider for Sensor 1
 - ** NO DIVIDER FOR AUX 0

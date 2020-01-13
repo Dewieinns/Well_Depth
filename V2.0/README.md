@@ -41,6 +41,7 @@ https://easyeda.com/dewie/well-depth
 Sensors are fed 12VDC but circuitry can't read that. A Voltage divider is necessary to drop the voltage down so we don't fry the electronics. 
 ** MORE ON THIS LATER**
 - R1 & R2 = Divider for voltage Sensing  (R1 10k & R2 3.3k)
+
 |Input Voltage	| Divided Voltage|
 |--------	|		|
 | 15v 		| 3.72		|

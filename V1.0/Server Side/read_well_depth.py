@@ -13,7 +13,7 @@ import netrc
 
 # 2019-03-20 - Initial implementation
 # 2019-04-13 - Added Email Alert
-#			 -
+# 2020-01-26 - After running out of water yesterday I adjusted warning thresholds.
 # 			 -
 
 
@@ -33,7 +33,12 @@ sender_email = authTokens_gmail[0]
 receiver_email = "dewiepedia@gmail.com"
 password = authTokens_gmail[2]
 
-url = "http://192.168.1.18/"
+warning_1 = 160		# 2020-01-26 - Changed from 150 to 160
+warning_2 = 110		# 2020-01-26 - Changed from 100 to 110
+warning_3 = 75		# 2020-01-26 - Changed from 
+cutoff_point = 60	# NOT USED YET
+
+url = "http://192.168.1.115/"
 with urllib.request.urlopen(url) as url:
 	data = json.loads(url.read().decode())
 	print(data)
@@ -63,13 +68,24 @@ with urllib.request.urlopen(url) as url:
 	print(mycursor.rowcount, "record inserted.")
 
 
-	if depth_value <= 150:
+	if depth_value <= warning_1:
 		print("Well water getting low, send an email message")
 		message = MIMEMultipart("alternative")
 		message["From"] = sender_email
 		message["To"] = receiver_email
 
-		if depth_value <= 75.0:
+
+		if depth_value <= cutoff_point:
+			message["Subject"] = "Domestic Well Cutoff point met"
+                        message_html = """\
+                        <html><body>
+                                The well water level is at the point where it has run out of water. This is where we would turn off power to the pump<br />
+                                <br />
+                                <a href="http://dewie.ca/Heatpump/historical/well-historical.html">Link to Historical Data</a>
+                        </body></html>
+                                """
+
+		if depth_value <= warning_3:
 			message["Subject"] = "Domestic Well VERY VERY low"
 			message_html = """\
 			<html><body>
@@ -79,7 +95,7 @@ with urllib.request.urlopen(url) as url:
 			</body></html>	
 				"""
 
-		elif depth_value <= 100.0:
+		elif depth_value <= warning_2:
 			message["Subject"] = "Domestic Well Very Low"
 			message_html = """\
 			<html><body>

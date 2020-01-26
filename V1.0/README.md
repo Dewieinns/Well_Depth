@@ -58,6 +58,9 @@ https://www.instructables.com/id/Quick-Start-to-Nodemcu-ESP8266-on-Arduino-IDE/
 
 ---
 ## Log
+
+
+
 ##### 2019-03-23
 - Up and running after determing seller provided wrong wiring information initially. 
 - Seems to work fine off 12 (10.90) VDC
@@ -69,6 +72,8 @@ https://www.instructables.com/id/Quick-Start-to-Nodemcu-ESP8266-on-Arduino-IDE/
 - Has rained a lot, well finally read 100% full (as high as sensor could read) which appeared to be at the bottom of the 2nd well crock from the top. This is to say there is a couple of ft of water above 100%. 
 ##### 2019-07-18
 - Hooked up solar panel. Sheep had been on well and knocked leads off a few times. Generally working pretty well these past few months other than when the battery gets low the sensor suddenly reads slow. Solar panel will hopefully take care of this. 
+##### 2019-07-07 
+- Still Seems to be working as intended - was down during a hurricane & we had a power outage... should maybe try to figure out some way to make a buffer if V2.0 submits live data
 
 ---
 ## ToDo

@@ -75,6 +75,9 @@ https://www.instructables.com/id/Quick-Start-to-Nodemcu-ESP8266-on-Arduino-IDE/
 ##### 2019-07-07 
 - Still Seems to be working as intended - was down during a hurricane & we had a power outage... should maybe try to figure out some way to make a buffer if V2.0 submits live data
 
+##### 2020-01-25
+- Ran out of water. Adjusted setpoints for warning messages. 
+
 ---
 ## ToDo
 - Look at setting a DNS Name for the NodeMCU

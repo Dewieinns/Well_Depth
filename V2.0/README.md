@@ -13,8 +13,6 @@ Contains the program uploaded to the NodeMCU. When a web request comes in the ha
 Built on:
 https://forum.arduino.cc/index.php?topic=223286.0
 
-
-
 #### /Server Side
 Contains a script that's run via a cronjob on a Linux server hourly which simply polls the NodeMCU for its JSON data and logs the raw data (0-1024) to a Database.
 
@@ -48,8 +46,9 @@ Sensors are fed 12VDC but circuitry can't read that. A Voltage divider is necess
 | 12v 		| 2.97v  	|
 | 10v 		| 2.48v		|
 
-- R3 & R4 = Divider for Sensor 0  (R1 2.2k & R2 3.3k) 
+- R3 & R4 = Divider for Sensor 0  (R1 (R4) 2.2k & R2 (R3) 3.3k)   
 **NOTE** Max 3.3VDC on ESP8266, not 5VDC like ADS1115
+**NOTE** 2k & 1k Resistors would be better suited, didn't have any 2k
 |Input Voltage	| Divided Voltage|
 |--------	| -------	|
 | 5v 		| 3v		|
@@ -98,9 +97,10 @@ https://www.instructables.com/id/Quick-Start-to-Nodemcu-ESP8266-on-Arduino-IDE/
 
 ** *CHANGE 'Reset Method' to "nodemcu"* in Arduino IDE
 
+##### Arduino GPIOs
 |Pin on board		|Pin in Arduino IDE		|Use			|
 |-------------------|-----------------------|---------------|
-|D0				|GPIO 16 				|Aux Header	&LED-DEPTH1 	|
+|D0					|GPIO 16 				|Aux Header	&LED-DEPTH1 	|
 |D1 				|GPIO 5  				|ADS1115 SCL	|
 |D2 				|GPIO 4  				|ADS1115 SDA	|
 |D3 				|GPIO 0	 				|LED-DEPTH0		|
@@ -109,7 +109,9 @@ https://www.instructables.com/id/Quick-Start-to-Nodemcu-ESP8266-on-Arduino-IDE/
 |D6 				|GPIO 12				|Aux Header		|
 |D7 				|GPIO 13 				|Aux Header		|
 |D8 				|GPIO 15				|Aux Header		|
-|A0				|A0						|DEPTH0 		|
+|A0					|A0						|~~DEPTH0~~ 		|
+
+* DEPTH0 - It was determiend after testing that... why not just use the 0-5V inputs of the ADS1115 for reading the depth sensors? 
 
 
 ### ADS1115
@@ -117,16 +119,18 @@ ADS1115 ADC ultra-compact 16-precision ADC module development board I31
 https://www.aliexpress.com/item/32765300165.html
 Provides the ESP8266 with additional Analog IOs
 
+|Pin on board		|Use					|
+|-------------------|-----------------------|
+|A0					| Board Input Voltage 	|
+|A1 				| ~~DEPTH1~~ DEPTH0		|
+|A2					| ~~AUX0~~ DEPTH1		|
+|A3 				| AUX1					|
+
+
 #### Address
 0x48 (1001000)
 http://henrysbench.capnfatz.com/henrys-bench/arduino-voltage-measurements/arduino-ads1115-module-getting-started-tutorial/
 
-|Pin on board		|Use						|
-|-------------------|---------------			|
-|A0					| Battery Voltage Monitor	|
-|A1 				| DEPTH1					|
-|A2 				| AUX0 						|
-|A3 				| AUX1						|
 
 
 ---
@@ -136,7 +140,7 @@ http://henrysbench.capnfatz.com/henrys-bench/arduino-voltage-measurements/arduin
 
 ---
 ## ToDo
-- Look at setting a DNS Name for the ESP8266 
+- ~~Look at setting a DNS Name for the ESP8266 ~~
 - ~~Find an integrated powersupply option to replace cell phone charger~~
 - ~~Voltage divider/voltage monitoring of the battery which runs the electronics at the Well Head~~
 - ~~Provisions for a second well depth monitor (Deep well)~~ ADS1115
@@ -149,7 +153,22 @@ http://henrysbench.capnfatz.com/henrys-bench/arduino-voltage-measurements/arduin
 - Ground for Aux1 ended up too close to power pins for Depth0 & 1 LEDs and shorted them to ground
 - Jumper resistors for Depth0 & 1 LEDs as they're not really necessary in this application 
 - Capacitor for 12v Input (After divider) ? (Possibly not necessary)
+- DEPTH1 doesn't need a voltage divider, ADS1115 already reads 0-5VDC
+- Make both DEPTH0 and DEPTH1 run off ADS1115 (Get rid of voltage divider, jumper, etc)
+- Position Text for Screw Terminals where I can actually read it... 
+- text for jumpers... 
 
 #### Helpful Links
 ###### Measuring the battery voltage 
 https://raspberrypi.stackexchange.com/questions/55177/vehicle-12v-detection-or-measurement
+
+## Google Cloud integration
+
+#### / Samples of note:
+Uploading to Google Cloud:
+https://github.com/GoogleCloudPlatform/google-cloud-iot-arduino
+- Requires:
+https://github.com/esp8266/arduino-esp8266fs-plugin
+
+Combined with the following to send useful data:
+http://nilhcem.com/iot/cloud-iot-core-with-the-esp32-and-arduino

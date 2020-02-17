@@ -49,6 +49,7 @@ Sensors are fed 12VDC but circuitry can't read that. A Voltage divider is necess
 - R3 & R4 = Divider for Sensor 0  (R1 (R4) 2.2k & R2 (R3) 3.3k)   
 **NOTE** Max 3.3VDC on ESP8266, not 5VDC like ADS1115
 **NOTE** 2k & 1k Resistors would be better suited, didn't have any 2k
+
 |Input Voltage	| Divided Voltage|
 |--------	| -------	|
 | 5v 		| 3v		|
@@ -64,11 +65,19 @@ Sensors are fed 12VDC but circuitry can't read that. A Voltage divider is necess
 
 ---
 ### Sensor Wiring 
+Shallow Well
 |Color 		| Purpose	|
 |-------	| -------	|			
 |Red 		|Power		|
 |Black		|Common		|
 |White		|Output	 	|
+
+Deep Well
+|Color 		| Purpose	|
+|-------	| -------	|			
+|Red 		|Power		|
+|blue		|Common		|
+|yellow		|Output	 	|
 
 https://www.aliexpress.com/item/4-20mA-Submersible-Liquid-Level-Sensor-Water-Level-Transmitter-Tank-Level-Transducer-DC24V-For-Detecting-0/32956105218.html?spm=a2g0s.9042311.0.0.7cfc4c4dooYNBU
 
@@ -148,6 +157,12 @@ http://henrysbench.capnfatz.com/henrys-bench/arduino-voltage-measurements/arduin
 - ~~Make additional Analog IOs accessible~~
 - ~~Make an expansion header to make additional ESP8266 Digital IOs accessible~~ 
 
+## Assembly Notes:
+- Don't need resistors for Depth1, just run a jumper in place of R5 (Nothing for R6) to get signal to ESP8266
+- Cut traces for -ve of Depth LEDs as they're shorted to an Aux pin and short it to ground when an LED is hooked up. (you have to bypass the resistor and hook ground up via a jumper wire on bottom of board)
+- Cut trace for power to Depth 1 LED and jumper to D0 on ESP8266 (was connected to onboard)
+
+
 #### Next Version
 - Don't make anything use internal LED (D4)
 - Ground for Aux1 ended up too close to power pins for Depth0 & 1 LEDs and shorted them to ground
@@ -157,6 +172,9 @@ http://henrysbench.capnfatz.com/henrys-bench/arduino-voltage-measurements/arduin
 - Make both DEPTH0 and DEPTH1 run off ADS1115 (Get rid of voltage divider, jumper, etc)
 - Position Text for Screw Terminals where I can actually read it... 
 - text for jumpers... 
+- Spacing for pins of power supply not quite right
+- Not quite enough room for ADS1115
+
 
 #### Helpful Links
 ###### Measuring the battery voltage 
@@ -172,3 +190,8 @@ https://github.com/esp8266/arduino-esp8266fs-plugin
 
 Combined with the following to send useful data:
 http://nilhcem.com/iot/cloud-iot-core-with-the-esp32-and-arduino
+
+
+#### Libraries possibly used:
+https://github.com/dreed47/WifiMQTTManager
+* Note Dependencies (and versions of said dependencies)

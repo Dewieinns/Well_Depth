@@ -78,6 +78,8 @@ https://www.instructables.com/id/Quick-Start-to-Nodemcu-ESP8266-on-Arduino-IDE/
 ##### 2020-01-25
 - Ran out of water. Adjusted setpoints for warning messages. 
 
+##### Moving Logging to V2.0
+
 ---
 ## ToDo
 - Look at setting a DNS Name for the NodeMCU

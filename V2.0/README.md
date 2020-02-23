@@ -94,7 +94,7 @@ Well Depth Sensor V2.0
 |-------																| -------	|	
 |- Sensor Range		    	= 0 - 23482									| - Sensor Range		    	= 0 - 1024	|
 |- Sensor out of water entirely 	= 								| - Sensor out of water entirely 	= 				|
-|- Run out of water at 	     	= 	(Estimated/Calculated) 1490					| - Run out of water at 	     	= 65.0					|
+|- Run out of water at 	     	= 	(Estimated/Calculated) 1490 		| - Run out of water at 	     	= 65.0					|
 |- 2 ft of water above 100% reading (limitation of the sensor purchased)| 					|
 
 
@@ -153,11 +153,35 @@ http://henrysbench.capnfatz.com/henrys-bench/arduino-voltage-measurements/arduin
 ---
 ## Log
 
+##### 2019-03-23
+- Up and running after determing seller provided wrong wiring information initially. 
+- Seems to work fine off 12 (10.90) VDC
+##### 2019-04-12 
+- Ran the water level down as far as I could get it with Nic's pump then ran the water hydrants on the house managed to get a low reading of 75.0 without actually running out, but could see foot valve. Much lower may as well be considered 0
+##### 2019-04-13 
+- Had accidentally left the heatpump on after yesterday which ran it completely out of water. Lowest observed reading was 65.0 @ 2019-04-12 23:45:01
+##### 2019-04-22 
+- Has rained a lot, well finally read 100% full (as high as sensor could read) which appeared to be at the bottom of the 2nd well crock from the top. This is to say there is a couple of ft of water above 100%. 
+##### 2019-07-18
+- Hooked up solar panel. Sheep had been on well and knocked leads off a few times. Generally working pretty well these past few months other than when the battery gets low the sensor suddenly reads slow. Solar panel will hopefully take care of this. 
+##### 2019-07-07 
+- Still Seems to be working as intended - was down during a hurricane & we had a power outage... should maybe try to figure out some way to make a buffer if V2.0 submits live data
+##### 2020-01-25
+- Ran out of water. Adjusted setpoints for warning messages. 
+
+##### New PC - apparently lost some logging that I dind't submit...
+
+##### 2020-01-22
+- Realized Shallow well wasn't reading properly (readings were going up/down with Voltage) - Re-wired and got some better looking data. 
+- Attempted to hook up Drilled well bypassing extension cable. Knocked power wires loose. Hooked them up backwards and fried everything... (burnt traces off board even)
+##### 2020-01-23
+- Assembled new depth sensor ignoring A0 on ESP8266 entirely. Made new extension cable and hooked to both wells. Logging at 1m intervals.
+- Noticed I'm getting negative values returned when water depth sensor is removed entirely from water (Depth0 - shallow well) 			
 
 
 ---
 ## ToDo
-- ~~Look at setting a DNS Name for the ESP8266 ~~
+- ~~Look at setting a DNS Name for the ESP8266~~
 - ~~Find an integrated powersupply option to replace cell phone charger~~
 - ~~Voltage divider/voltage monitoring of the battery which runs the electronics at the Well Head~~
 - ~~Provisions for a second well depth monitor (Deep well)~~ ADS1115

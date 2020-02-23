@@ -81,15 +81,21 @@ Deep Well
 
 https://www.aliexpress.com/item/4-20mA-Submersible-Liquid-Level-Sensor-Water-Level-Transmitter-Tank-Level-Transducer-DC24V-For-Detecting-0/32956105218.html?spm=a2g0s.9042311.0.0.7cfc4c4dooYNBU
 
+Prototype Board:
+|Shallow Well 															|
+|-------																|
+|- Sensor Range		    	= 0 - 1024									|
+|- Sensor out of water entirely 	= ~7								|
+|- Run out of water at 	     	= 65.0									|
+|- 2 ft of water above 100% reading (limitation of the sensor purchased)| 	
 
+Well Depth Sensor V2.0
 |Shallow Well 															| Deep Well	|
 |-------																| -------	|	
-|- Sensor Range		    	= 0 - 1024									| - Sensor Range		    	= 0 - 1024	|
-|- Sensor out of water entirely 	= ~7								| - Sensor out of water entirely 	= 				|
-|- Run out of water at 	     	= 65.0									| - Run out of water at 	     	= 65.0					|
+|- Sensor Range		    	= 0 - 23482									| - Sensor Range		    	= 0 - 1024	|
+|- Sensor out of water entirely 	= 								| - Sensor out of water entirely 	= 				|
+|- Run out of water at 	     	= 	(Estimated/Calculated) 1490					| - Run out of water at 	     	= 65.0					|
 |- 2 ft of water above 100% reading (limitation of the sensor purchased)| 					|
-
-
 
 
 ---
@@ -127,6 +133,8 @@ https://www.instructables.com/id/Quick-Start-to-Nodemcu-ESP8266-on-Arduino-IDE/
 ADS1115 ADC ultra-compact 16-precision ADC module development board I31
 https://www.aliexpress.com/item/32765300165.html
 Provides the ESP8266 with additional Analog IOs
+
++5vdc = 23482
 
 |Pin on board		|Use					|
 |-------------------|-----------------------|
@@ -174,6 +182,10 @@ http://henrysbench.capnfatz.com/henrys-bench/arduino-voltage-measurements/arduin
 - text for jumpers... 
 - Spacing for pins of power supply not quite right
 - Not quite enough room for ADS1115
+- Keep traces away from 5v power regulator pins
+- Capicitors for sensors
+- Reverse Polarity protection?
+- Join negatives on power regulator so everything is common (12V Status LED was feeding through something else
 
 
 #### Helpful Links

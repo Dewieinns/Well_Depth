@@ -120,14 +120,14 @@ https://www.instructables.com/id/Quick-Start-to-Nodemcu-ESP8266-on-Arduino-IDE/
 |D2 				|GPIO 4  				|ADS1115 SDA	|
 |D3 				|GPIO 0	 				|LED-DEPTH0		|
 |~~D4~~ 			|GPIO 2					|~~LED-DEPTH1~~	|
-|D5 				|GPIO 14				|Aux Header		|
+|D5 				|GPIO 14				|Aux Header	- Setup Pin	|
 |D6 				|GPIO 12				|Aux Header		|
 |D7 				|GPIO 13 				|Aux Header		|
 |D8 				|GPIO 15				|Aux Header		|
 |A0					|A0						|~~DEPTH0~~ 		|
 
 * DEPTH0 - It was determiend after testing that... why not just use the 0-5V inputs of the ADS1115 for reading the depth sensors? 
-
+* D5 - Subject to change which one we use but used for a magnetic switch to put the device in Setup Mode
 
 ### ADS1115
 ADS1115 ADC ultra-compact 16-precision ADC module development board I31
@@ -210,7 +210,9 @@ http://henrysbench.capnfatz.com/henrys-bench/arduino-voltage-measurements/arduin
 - Capicitors for sensors
 - Reverse Polarity protection?
 - Join negatives on power regulator so everything is common (12V Status LED was feeding through something else
-
+- Need to jumper a pin to ground to enter setup mode (D5 - Pin 14?)
+- Boards are just a hair too big in x axis still. Shave off from left side. Left Screw hole and bottom holes ok. Top holes could go up a hair, far right hole over nearly half width of hole. 
+- provisions for magnetic switch
 
 #### Helpful Links
 ###### Measuring the battery voltage 

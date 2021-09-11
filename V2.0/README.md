@@ -153,6 +153,7 @@ http://henrysbench.capnfatz.com/henrys-bench/arduino-voltage-measurements/arduin
 ---
 ## Log
 
+
 ##### 2019-03-23
 - Up and running after determing seller provided wrong wiring information initially. 
 - Seems to work fine off 12 (10.90) VDC
@@ -169,7 +170,7 @@ http://henrysbench.capnfatz.com/henrys-bench/arduino-voltage-measurements/arduin
 ##### 2020-01-25
 - Ran out of water. Adjusted setpoints for warning messages. 
 
-##### New PC - apparently lost some logging that I dind't submit...
+##### New PC - apparently lost some logging that I didn't submit...
 
 ##### 2020-01-22
 - Realized Shallow well wasn't reading properly (readings were going up/down with Voltage) - Re-wired and got some better looking data. 
@@ -178,6 +179,25 @@ http://henrysbench.capnfatz.com/henrys-bench/arduino-voltage-measurements/arduin
 - Assembled new depth sensor ignoring A0 on ESP8266 entirely. Made new extension cable and hooked to both wells. Logging at 1m intervals.
 - Noticed I'm getting negative values returned when water depth sensor is removed entirely from water (Depth0 - shallow well) 			
 
+##### 2020-06-01
+- Ran out of water entirely. Lowest recording was 1203. Immediately went back up to 1724 (may have been from me moving sensor around looking down well)
+-- Suggest cut-off at 1700
+-- Suggest 1st stage warning of 6000
+-- Suggest 2nd stage warning of 3000
+-- Had 2000L of water delivered, range went from ~1972 to 19273. (difference of 17,301)
+
+##### 2020-06-11
+- Out of water again. Played with Thingboard ruleengine as alerts weren't getting sent out
+-- Had 2000Gallons of water delivered, range went from ~2001 to 18246. (difference of 16,245)
+
+##### 2020-08-19
+- Getting low on water, put in ~2400L of water. This equated to approximately 3 raw units per L of water on the gauge. 
+-- 12203 - 4887 = 3.0483
+
+##### 2021-09-11
+- Migrated server to dewie-projects.ca, a cloud hosted server. This is due to receiving Starlink and no longer having an externally facing IP/issues encounterd with MQTT running over a cloudflare tunnel (not possible)
+
+
 
 ---
 ## ToDo
@@ -185,6 +205,8 @@ http://henrysbench.capnfatz.com/henrys-bench/arduino-voltage-measurements/arduin
 - ~~Find an integrated powersupply option to replace cell phone charger~~
 - ~~Voltage divider/voltage monitoring of the battery which runs the electronics at the Well Head~~
 - ~~Provisions for a second well depth monitor (Deep well)~~ ADS1115
+- Add buffer to logic which clears the alarm to prevent fluxuations from causing a hundred email messages
+- Get emails being sent out for low level warnings
 #### Future Planning
 - ~~Make additional Analog IOs accessible~~
 - ~~Make an expansion header to make additional ESP8266 Digital IOs accessible~~ 
@@ -205,14 +227,18 @@ http://henrysbench.capnfatz.com/henrys-bench/arduino-voltage-measurements/arduin
 - Position Text for Screw Terminals where I can actually read it... 
 - text for jumpers... 
 - Spacing for pins of power supply not quite right
-- Not quite enough room for ADS1115
-- Keep traces away from 5v power regulator pins
-- Capicitors for sensors
+- Not quite enough room for ADS1115 (Depends on which one used)
+- Keep traces away from 5v power regulator pins (one currently runs between 5+ pins on board)
+- Capicitors for sensors (?) 
 - Reverse Polarity protection?
 - Join negatives on power regulator so everything is common (12V Status LED was feeding through something else
-- Need to jumper a pin to ground to enter setup mode (D5 - Pin 14?)
 - Boards are just a hair too big in x axis still. Shave off from left side. Left Screw hole and bottom holes ok. Top holes could go up a hair, far right hole over nearly half width of hole. 
-- provisions for magnetic switch
+- provisions for magnetic switch on D5 to ground to enter setup mode (D5 - Pin 14?)
+- Don't need a voltage divider for measuring battery voltage - just more resistors: https://www.instructables.com/DIY-Monitor-Your-Car-Battery-Code-Setup/
+
+
+14100432
+
 
 #### Helpful Links
 ###### Measuring the battery voltage 
